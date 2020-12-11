@@ -1,0 +1,19 @@
+{
+  "name": "technomad-stack",
+  "version": "1.0.0",
+  "description": "wommys web stack",
+  "repository": "git@github.com:wommy/technomad_stack.git",
+  "author": "wommy <tom@technomad.media>",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^7.1.2",
+    "postcss-import": "^12.0.1",
+    "sanitize.css": "^12.0.1",
+    "tailwindcss": "^1.7.6"
+  },
+  "scripts": {
+    "css": "postcss tailwind/style.css -o 11ty/css/style.css"
+  }
+}

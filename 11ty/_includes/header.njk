@@ -1,0 +1,7 @@
+<header>
+	<nav>
+	{%- for key, url in { "home": "/" } %}
+		<a {% if url == page.url %}class="active"{% else %}href="{{ url }}"{% endif %}>{{ key }}</a>
+	{%- endfor %}
+	</nav>
+</header>
