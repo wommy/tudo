@@ -1,0 +1,3 @@
+[submodule "tms"]
+	path = tms
+	url = git@github.com:wommy/technomad-stack.git
