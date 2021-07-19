@@ -1,0 +1,14 @@
+{
+  "name": "technomad-todo-alpine",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:wommy/technomad-todo-alpine.git",
+  "author": "wommy <tom@technomad.media>",
+  "license": "MIT",
+  "scripts": {
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
