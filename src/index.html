@@ -15,18 +15,41 @@ title: 'alpine todo'
 		"
 	>
 		<ul>
-		<template x-for="todo in todos" :key="todo.id">
-			<li class="my-4">
-				<a :href="todo.link" target="blank" x-text="todo.name"></a>
-				<div x-text="todo.category"></div>
-			</li>
-		</template>
+			<template x-for="todo in todos" :key="todo.id">
+				<li class="my-4">
+					<a :href="todo.link" target="blank" x-text="todo.name"></a>
+					<div x-text="todo.category"></div>
+				</li>
+			</template>
 		</ul>
 		
 	</main>
-	<footer>
-		<form action="http://technomad.media:1337/todos">
-
+	<footer class="sticky bottom-0">
+		<form 
+			action="http://technomad.media:1337/todos" method="POST" 
+			class="grid place-content-center"
+			x-data="{ link: false, category: false }"
+		>
+			<label class="flex justify-center gap-2">
+				<span>link?</span>
+				<input type="checkbox" class="h-full" x-model="link">
+			</label>
+			<template x-if="link">
+				<input name="link" placeholder="link">
+			</template>
+			<input name="name" placeholder="name" required>
+			<label class="flex justify-center gap-2">
+				<span>category?</span>
+				<input type="checkbox" class="h-full" x-model="category">
+			</label>
+			<template x-if="category">
+				<input name="category" placeholder="category">
+			</template>
+			<label class="flex justify-center gap-2">
+				<span>complete?</span>
+				<input type="checkbox" name="complete" value=True class="h-full">
+			</label>
+			<input type="submit">
 		</form>
 	</footer>
 </div>
