@@ -6,7 +6,8 @@
   "author": "wommy <tom@technomad.media>",
   "license": "MIT",
   "scripts": {
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
