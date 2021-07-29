@@ -2,23 +2,24 @@
 layout: html5
 title: 'todo'
 ---
-<div class="container mx-auto">
+<div class="container m-4 md:mx-auto grid gap-2">
 	<header>
-		<h1>{{ title }}</h1>
+		<h1 class="my-0">{{ title }}</h1>
 	</header>
-	<main class="mb-12">
-		<ol>
-			{%- for todo in todos | reverse %}
+
+	<main class="overflow-y-scroll">
+		<ol class="my-0 gap-2 flex flex-col-reverse">
+			{%- for todo in todos %}
 			{% todoItem todo %}
 			{%- endfor %}
 		</ol>
 	</main>
 
-	<footer class="fixed bottom-0">
+	<footer class="fixed bottom-12 sm:bottom-8 right-8 bg-white">
 		<form 
 			action="http://technomad.media:1337/todos" method="POST" 
 			class="grid place-content-center"
-			x-data="{ link: false, category: false }"
+			x-data="{ link: true, category: true }"
 		>
 			<label class="flex justify-center gap-2">
 				<span>link?</span>
@@ -42,4 +43,12 @@ title: 'todo'
 			<input type="submit">
 		</form>
 	</footer>
+
+	<style>
+@media ( orientation: portrait) {
+main {
+ height: 55vh;
+}
+}
+	</style>
 </div>
