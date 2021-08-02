@@ -15,33 +15,8 @@ title: 'todo'
 		</ol>
 	</main>
 
-	<footer class="fixed bottom-8 right-8 bg-white">
-		<form 
-			action="/api/todos/" method="POST" 
-			class="grid place-content-center"
-			x-data="{ link: true, category: true }"
-		>
-			<label class="flex justify-center gap-2">
-				<span>link?</span>
-				<input type="checkbox" class="h-full" x-model="link">
-			</label>
-			<template x-if="link">
-				<input name="link" placeholder="link">
-			</template>
-			<input name="name" placeholder="name" required>
-			<label class="flex justify-center gap-2">
-				<span>category?</span>
-				<input type="checkbox" class="h-full" x-model="category">
-			</label>
-			<template x-if="category">
-				<input name="category" placeholder="category">
-			</template>
-			<label class="flex justify-center gap-2">
-				<span>complete?</span>
-				<input type="checkbox" name="complete" value=True class="h-full">
-			</label>
-			<input type="submit">
-		</form>
+	<footer>
+		{% include "todo-form.html" %}
 	</footer>
 
 	<style>

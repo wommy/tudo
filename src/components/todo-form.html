@@ -1,0 +1,22 @@
+<form 
+	action="/api/todos/" method="POST" 
+	x-data="{ link: false, category: false }"
+	class="flex flex-col gap-1"
+>
+	<label>
+		<input name="link" placeholder="link" :disabled="!link">
+		<input type="checkbox" x-model="link">
+		<span>link?</span>
+	</label>
+	<label>
+		<input name="category" placeholder="category" :disabled="!category">
+		<input type="checkbox" x-model="category">
+		<span>category?</span>
+	</label>
+	<label>
+		<input name="name" placeholder="name" required>
+		<input type="checkbox" name="complete" value=True>
+		<span>complete?</span>
+	</label>
+	<button type="submit">Submit</button>
+</form>
