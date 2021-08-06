@@ -2,38 +2,39 @@
 layout: html5
 title: 'todo'
 ---
-<div class="container m-4 md:mx-auto grid gap-2 max-w-max">
-	<header>
-		<h1 class="my-0">{{ title }}</h1>
+<article>
+	<header class="text-center">
+		<h1 class="my-4">{{ title }}</h1>
 	</header>
 
-	<main class="pb-12 overflow-y-scroll">
-		<ol class="my-0 w-auto gap-2 flex flex-col-reverse">
-			{%- for todo in todos %}
-			{% todoItem todo %}
-			{%- endfor %}
-		</ol>
+	<main class="flex justify-evenly">
+		<section>
+			<ol class="stack" reversed>
+				{%- for todo in todos | reverse %}
+				{% todoItem todo %}
+				{%- endfor %}
+			</ol>
+		</section>
+
+		<footer>
+			{% include "todo-form.html" %}
+		</footer>
 	</main>
 
-	<footer>
-		{% include "todo-form.html" %}
-	</footer>
-
 	<style>
-@media ( orientation: portrait) {
-	html, body {
-		max-width: 100vw;
-		max-height: 100vh;
-	}
-	header {
-		height: 5vh;
-	}
-	main {
-		height: 55vh;
-	}
-	footer {
-		height: 30vh;
-	}
+.stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack, .stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+} 
+
+.stack > * + * {
+  margin-top: var(--space, .5rem);
 }
 	</style>
-</div>
+</article>
