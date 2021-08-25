@@ -1,40 +1,39 @@
 ---
-layout: html5
-title: 'todo'
+layout: base
+title: todo
 ---
-<article>
-	<header class="text-center">
-		<h1 class="my-4">{{ title }}</h1>
-	</header>
 
-	<main class="flex justify-evenly">
-		<section>
-			<ol class="stack" reversed>
-				{%- for todo in todos | reverse %}
-				{% todoItem todo %}
-				{%- endfor %}
-			</ol>
-		</section>
+<header class="text-center">
+	<h1 class="my-4">{{ title }}</h1>
+</header>
 
-		<footer>
-			{% include "todo-form.html" %}
-		</footer>
-	</main>
+<main class="flex justify-evenly">
+	<ol class="stack" reversed>
+		{%- for todo in todos | reverse %}
+		{% todoItem todo %}
+		{%- endfor %}
+	</ol>
 
-	<style>
+	<aside>
+		{% include "todo-form.html" %}
+	</aside>
+</main>
+
+
+<style>
+
 .stack {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
-
 .stack, .stack > * {
-  margin-top: 0;
-  margin-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 } 
-
 .stack > * + * {
-  margin-top: var(--space, .5rem);
+	margin-top: var(--space, .5rem);
 }
-	</style>
-</article>
+
+</style>
+

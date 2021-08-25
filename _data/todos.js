@@ -1,6 +1,5 @@
 const fetch = require('node-fetch')
+const url = 'http://technomad.media:1337/todos'
 
-module.exports = async function() {
-	return await fetch('http://technomad.media:1337/todos')
-		.then( res => res.json() )
-}
+module.exports = async ()=> await fetch(url)
+	.then( res => res.json() )
