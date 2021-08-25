@@ -1,0 +1,21 @@
+<form action="/api/todos/" method="POST" 
+	class="flex flex-col gap-1"
+	x-data="{ link: true, category: true }"
+>
+
+	{% for ea in ['link','category'] %}
+	<label>
+		<input name="{{ ea }}" placeholder="{{ ea }}" :disabled="!{{ ea }}">
+		<input type="checkbox" x-model="{{ ea }}">
+		<span>{{ ea }}?</span>
+	</label>
+	{% endfor %}
+
+	<label>
+		<input name="name" placeholder="name" required>
+		<input type="checkbox" name="complete" value=True>
+		<span>complete?</span>
+	</label>
+
+	<button type="submit">Submit</button>
+</form>

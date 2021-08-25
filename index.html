@@ -1,0 +1,39 @@
+---
+layout: base
+title: todo
+---
+
+<header class="text-center">
+	<h1 class="my-4">{{ title }}</h1>
+</header>
+
+<main class="flex justify-evenly">
+	<ol class="stack" reversed>
+		{%- for todo in todos | reverse %}
+		{% todoItem todo %}
+		{%- endfor %}
+	</ol>
+
+	<aside>
+		{% include "todo-form.html" %}
+	</aside>
+</main>
+
+
+<style>
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.stack, .stack > * {
+	margin-top: 0;
+	margin-bottom: 0;
+} 
+.stack > * + * {
+	margin-top: var(--space, .5rem);
+}
+
+</style>
+
