@@ -9,8 +9,10 @@
     "start": "eleventy --serve",
     "build": "eleventy"
   },
-  "dependencies": {
+  "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@sanity/client": "^0.147.3",
+    "dotenv": "^10.0.0",
     "node-fetch": "^2.6.1"
   }
 }

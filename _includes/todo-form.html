@@ -1,21 +1,15 @@
-<form action="/api/todos/" method="POST" 
-	class="flex flex-col gap-1"
-	x-data="{ link: true, category: true }"
+<form action="/api/sanity-create-todo/" method="POST" 
+	class="flex gap-1"
 >
 
-	{% for ea in ['link','category'] %}
-	<label>
-		<input name="{{ ea }}" placeholder="{{ ea }}" :disabled="!{{ ea }}">
-		<input type="checkbox" x-model="{{ ea }}">
-		<span>{{ ea }}?</span>
-	</label>
-	{% endfor %}
+	<fieldset>
+		<legend>todo</legend>
 
-	<label>
-		<input name="name" placeholder="name" required>
-		<input type="checkbox" name="complete" value=True>
-		<span>complete?</span>
-	</label>
+		<label>
+			<input name="todo" placeholder="todo" required>
+		</label>
 
-	<button type="submit">Submit</button>
+		<button type="submit">Submit</button>
+	</fieldset>
+
 </form>
