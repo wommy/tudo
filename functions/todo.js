@@ -19,7 +19,7 @@ const handler = async (event) => {
 
   const document = {
     _type: 'todo',
-    todo: decodeURIComponent( event.body.split("=")[1].replace(/\+/g, ' ') ),
+    todo: decodeURIComponent( event.body.split("=")[1].replace(/\+/g, ' ').trim() ),
     category: ['inbox'],
     isComplete: false,
   }
