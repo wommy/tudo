@@ -1,4 +1,4 @@
-import client from './sanityClient'
+import client from '../utils/sanityClient'
 
 const handler = async (event) => {
   if (!event.httpMethod === 'POST') {
