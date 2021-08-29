@@ -7,36 +7,16 @@ const handler = async (event) => {
       body: 'unrecognized HTTP Method, only POST allowed',
     }
   }
+  
+  const result = 'url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DF6Wfy9Ro4s4&title=How%20to%20be%20an%20actual%20god%20on%20Pudge%20-%20YouTube'
 
-  const s0 = event.body
-  console.log(s0)
-
-  const s1 = s0.split("&")
-  console.log(s1)
-
-  // const s2a = s1[0].split("=")[1].replace(/\+/g, ' ').trim()
-  // console.log(s2a)
-  // const s2b = s1[1].split("=")[1].replace(/\+/g, ' ').trim()
-  // console.log(s2b)
-
-  // const sa2 = s1.map( x =>  x.split("=")[1].replace(/\+/g, ' ').trim() )
-  // console.log(sa2)
-
-  const saa2 = s1.map( x =>  x.split("=") )
-  console.log(saa2)
-
-  const saa3 = Object.fromEntries(saa2)
-  console.log(saa3)
-
-  let { url, title } = Object.fromEntries(saa2)
-    // .forEach( x => console.log( decodeURIComponent(x).split("=").slice(1).join("=").replace(/\+/g, ' ').trim() ) )
-    // todo: decodeURIComponent( event.body.split("=")[1].replace(/\+/g, ' ').trim() ),
+  let { url, title } = Object.fromEntries(event.body.split("&").map( x =>  x.split("=") ))
 
   const document = {
     _type: 'bookmark',
     category: ['inbox'],
+    title: decodeURIComponent( title ),
     url: decodeURIComponent( url ),
-    title: decodeURIComponent( title.replace(/\+/g, ' ') ),
   }
 
   try {
