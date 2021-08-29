@@ -1,0 +1,48 @@
+---
+layout: base
+title: bookmark
+---
+
+<main class="grid place-content-center gap-8 mt-8">
+	<header class="text-center">
+		<h1>{{ title }}</h1>
+	</header>
+
+	<form action="/api/bookmark/" method="POST" 
+		class="flex gap-1"
+	>
+		<label>
+			<input name="url" placeholder="url" required>
+		</label>
+		<label>
+			<input name="title" placeholder="title" required>
+		</label>
+
+		<button type="submit">Submit</button>
+	</form>
+
+	<ol class="stack" reversed>
+		{%- for ea in sanity | reverse %}
+		<li>{{ ea }}</li>
+		{%- endfor %}
+	</ol>
+</main>
+
+
+<style>
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.stack, .stack > * {
+	margin-top: 0;
+	margin-bottom: 0;
+} 
+.stack > * + * {
+	margin-top: var(--space, .5rem);
+}
+
+</style>
+
