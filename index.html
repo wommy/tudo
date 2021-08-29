@@ -3,20 +3,26 @@ layout: base
 title: todo
 ---
 
-<header class="text-center">
-	<h1 class="my-4">{{ title }}</h1>
-</header>
+<main class="grid place-content-center gap-8 mt-8">
+	<header class="text-center">
+		<h1>{{ title }}</h1>
+	</header>
 
-<main class="flex justify-evenly">
+	<form action="/api/todo/" method="POST" 
+		class="flex gap-1"
+	>
+		<label>
+			<input name="todo" placeholder="todo" required>
+		</label>
+
+		<button type="submit">Submit</button>
+	</form>
+
 	<ol class="stack" reversed>
-		{%- for todo in todos | reverse %}
-		{% todoItem todo %}
+		{%- for ea in sanity | reverse %}
+		<li>{{ ea }}</li>
 		{%- endfor %}
 	</ol>
-
-	<aside>
-		{% include "todo-form.html" %}
-	</aside>
 </main>
 
 
