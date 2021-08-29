@@ -8,9 +8,10 @@ const handler = async (event) => {
     }
   }
   
-  const result = 'url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DF6Wfy9Ro4s4&title=How%20to%20be%20an%20actual%20god%20on%20Pudge%20-%20YouTube'
-
-  let { url, title } = Object.fromEntries(event.body.split("&").map( x =>  x.split("=") ))
+  const { url, title } = Object.fromEntries(event.rawQuery
+    .split("&")
+    .map( x => x.split("=") )
+  )
 
   const document = {
     _type: 'bookmark',
