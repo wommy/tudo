@@ -1,15 +1,18 @@
 ---
 layout: base
-title: bookmark
+title: bookmarks
 ---
 
-<main class="grid place-content-center gap-8 mt-8">
+<main class="grid place-content-center gap-8 mt-8"
+			x-data="{ filter: 'inbox', }"
+>
 	<header class="text-center">
 		<h1>{{ title }}</h1>
 	</header>
 
+	{#
 	<form action="/api/bookmark/" method="POST" 
-		class="flex gap-1"
+		class="gap-1 | justify-center | flex"
 	>
 		<label>
 			<input name="url" placeholder="url" required>
@@ -20,16 +23,36 @@ title: bookmark
 
 		<button type="submit">Submit</button>
 	</form>
+	#}
+
+	<div class="gap-2 | justify-center | flex">
+		<button 
+			@click="filter = ''"
+			:class="(filter === '') && 'active'"
+		>all</button>
+		{%- for ea in ['inbox','dota','food','music'] %}
+		<button 
+			@click="filter = '{{ ea }}'"
+			:class="(filter === '{{ ea }}') && 'active'"
+		>{{ ea }}</button>
+		{%- endfor %}
+	</div>
 
 	<ol class="stack" reversed>
-		{%- for ea in sanity | reverse %}
-		<li>{{ ea }}</li>
+		{%- for ea in bookmarks | reverse %}
+		<li x-show="filter == '' || filter == '{{ ea.category }}'">
+			<a href="{{ ea.url }}">{{ ea.title }}</a>
+		</li>
 		{%- endfor %}
 	</ol>
 </main>
 
 
 <style>
+
+.active {
+	color: magenta;
+}
 
 .stack {
 	display: flex;
