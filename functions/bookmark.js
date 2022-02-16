@@ -1,23 +1,22 @@
 import client from '../utils/sanityClient'
 
-const handler = async (event) => {
+const handler = async event => {
   if (!event.httpMethod === 'POST') {
     return {
       statusCode: 400,
       body: 'unrecognized HTTP Method, only POST allowed',
     }
   }
-  
-  const { url, title } = Object.fromEntries(event.rawQuery
-    .split("&")
-    .map( x => x.split("=") )
+
+  const { url, title } = Object.fromEntries(
+    event.rawQuery.split('&').map(x => x.split('=')),
   )
 
   const document = {
     _type: 'bookmark',
     category: ['inbox'],
-    title: decodeURIComponent( title ),
-    url: decodeURIComponent( url ),
+    title: decodeURIComponent(title),
+    url: decodeURIComponent(url),
   }
 
   try {

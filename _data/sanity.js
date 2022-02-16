@@ -1,9 +1,4 @@
-const process = require('process')
+const client = require('../utils/sanityClient')
 
-module.exports = async ()=> await require('@sanity/client')({
-  projectId: process.env.SANITY_PROJECTID,
-  dataset: process.env.SANITY_DATASET,
-  token: process.env.SANITY_TOKEN,
-  useCdn: true,
-}).fetch(`*[_type=='todo'] | order(_createdAt asc).todo`)
-
+module.exports = async () =>
+  await client.fetch(`*[_type=='todo'] | order(_createdAt asc).todo`)

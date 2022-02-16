@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title + ' | ' }}technomad</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title + ' | ' }}technomad</title>
+    {#
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link href="//unpkg.com/sanitize.css" rel="stylesheet" />
+    <link href="//unpkg.com/sanitize.css/typography.css" rel="stylesheet" />
+    <link href="//unpkg.com/sanitize.css/forms.css" rel="stylesheet" />
+    <link href="//unpkg.com/sanitize.css/assets.css" rel="stylesheet" />
+    #}
+    <link href="//unpkg.com/modern-css-reset/dist/reset.min.css" rel="stylesheet" />
+    <link href="//unpkg.com/tailwindcss@^2/dist/components.min.css" rel="stylesheet" />
+    <link href="//unpkg.com/tailwindcss@^2/dist/utilities.min.css" rel="stylesheet" />
+  </head>
 
-	<script src="//unpkg.com/alpinejs" defer></script>
-	<!-- <link href="https://unpkg.com/sanitize.css" rel="stylesheet" /> -->
-	<!-- <link href="https://unpkg.com/sanitize.css/typography.css" rel="stylesheet" /> -->
-	<!-- <link href="https://unpkg.com/sanitize.css/forms.css" rel="stylesheet" /> -->
-	<!-- <link href="https://unpkg.com/sanitize.css/assets.css" rel="stylesheet" /> -->
-	<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
-	<link href="https://unpkg.com/tailwindcss@^2/dist/components.min.css" rel="stylesheet" />
-	<link href="https://unpkg.com/tailwindcss@^2/dist/utilities.min.css" rel="stylesheet" />
-</head>
-
-<body>
-	{{ content | safe }}
-</body>
+  <body>
+    {{ content | safe }}
+  </body>
 </html>

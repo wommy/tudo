@@ -1,8 +1,8 @@
-module.exports = todo => `
+exports.render = todo => `
 	<li>
-		<a${ todo.link ?` href="${ todo.link }" target="blank"`:`` }>
-			${ todo.name }
+		<a${todo.link ? ` href="${todo.link}" target="blank"` : ``}>
+			${todo.name}
 		</a>
-		<div>${ todo.category }</div>
+		<div>${todo.category}</div>
 	</li>
 `

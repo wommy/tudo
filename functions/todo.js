@@ -1,6 +1,6 @@
 import client from '../utils/sanityClient'
 
-const handler = async (event) => {
+const handler = async event => {
   if (!event.httpMethod === 'POST') {
     return {
       statusCode: 400,
@@ -10,7 +10,7 @@ const handler = async (event) => {
 
   const document = {
     _type: 'todo',
-    todo: decodeURIComponent( event.body.split("=")[1].replace(/\+/g, ' ').trim() ),
+    todo: decodeURIComponent(event.body.split('=')[1].replace(/\+/g, ' ').trim()),
     category: ['inbox'],
     isComplete: false,
   }
