@@ -1,12 +1,8 @@
-import 'twin.macro'
-
-const HelloWorld = () => (
-  <h1 tw='text-center text-3xl'>wommy workin</h1>
-)
+import Tudo from './components/Tudo'
 
 function App() {
   return (
-    <HelloWorld />
+    <Tudo />
   )
 }
 
