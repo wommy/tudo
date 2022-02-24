@@ -1,4 +1,4 @@
-import { Component, createSignal, For, onMount } from 'solid-js'
+import { Component, createResource, For, Show, Suspense } from 'solid-js'
 import sanityFetch from '../utils/sanityFetch'
 
 export const Header: Component = () => {
@@ -26,15 +26,16 @@ export const Form: Component = () => {
 }
 
 export const TudoList: Component = () => {
-  const [tudos, setTudos] = createSignal([])
-  onMount(async () => {
-    setTudos(await sanityFetch)
-  })
+  const [tudos] = createResource(async () => await sanityFetch)
   return (
     <ol className='stack' reversed>
-      <For each={tudos().reverse()} fallback={<p>loadin..</p>}>{tudo => 
-        <li>{tudo}</li>
-      }</For>
+      <Suspense fallback={<p>loadin..</p>}>
+        <Show when={tudos()}>
+          <For each={tudos().reverse()}>{tudo => 
+            <li>{tudo as string}</li>
+          }</For>
+        </Show>
+      </Suspense>
     </ol>
   )
 }
