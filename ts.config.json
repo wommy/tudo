@@ -1,0 +1,16 @@
+{
+	"plugins": [
+		{
+			"name": "@twind/typescript-plugin",
+			"tags": [
+				"tw",
+				"className"
+			],
+			"atrributes": [
+				"tw",
+				"className"
+			],
+			"debug": true
+		}
+	]
+}

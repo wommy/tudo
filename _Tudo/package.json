@@ -1,0 +1,18 @@
+{
+  "name": "tudo",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "repository": "git@github.com:wommy/tudo.git",
+  "author": "wommy <tom@technomad.media>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "eleventy --serve --incremental",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@sanity/client": "^3.0.6",
+    "dotenv": "^16.0.0",
+    "node-fetch": "^2.6.7"
+  }
+}

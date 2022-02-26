@@ -1,0 +1,74 @@
+---
+layout: base
+title: bookmarks
+---
+
+<main 
+	x-data="{ filter: 'inbox', }"
+	class="grid place-content-center gap-8 mt-8" 
+>
+  <header class="text-center">
+    <h1>{{ title }}</h1>
+  </header>
+
+  {#
+  <form 
+		action="/api/bookmark/" method="POST" 
+		class="gap-1 | justify-center | flex"
+	>
+    <label>
+      <input name="url" placeholder="url" required />
+    </label>
+    <label>
+      <input name="title" placeholder="title" required />
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+  #}
+
+  <div class="gap-2 | justify-center | flex">
+    <button 
+			@click="filter = ''" 
+			:class="(filter === '') && 'active'"
+		>all</button>
+    {%- for ea in ['inbox','dota','food','music'] %}
+    <button 
+			@click="filter = '{{ ea }}'" 
+			:class="(filter === '{{ ea }}') && 'active'"
+		>
+      {{ ea }}
+    </button>
+    {%- endfor %}
+  </div>
+
+  <ol class="stack" reversed>
+    {%- for ea in bookmarks | reverse %}
+    <li 
+			x-show="filter == '' || filter == '{{ ea.category }}'"
+		>
+      <a href="{{ ea.url }}">{{ ea.title }}</a>
+    </li>
+    {%- endfor %}
+  </ol>
+</main>
+
+<style>
+  .active {
+    color: magenta;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .stack,
+  .stack > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .stack > * + * {
+    margin-top: var(--space, 0.5rem);
+  }
+</style>
