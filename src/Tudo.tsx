@@ -1,19 +1,16 @@
-import { Component, createResource, For, Show, Suspense } from 'solid-js'
-import sanityFetch from './utils/sanityFetch'
+import { Component, createResource, For, Suspense } from 'solid-js'
+import fetchTudos from './utils/pico'
 
 const Tudo: Component = () => {
-  const [tudos] = createResource(async () => await sanityFetch)
+  const [tudos] = createResource(async () => fetchTudos)
   return (
     <main class='grid place-content-center gap-8 mt-8'>
-      
-      {/* simple header */}
       <header class='text-center'>
         <h1>tudo</h1>
       </header>
 
-			{/* form */}
       <form
-        action='https://todo-tm.netlify.app/api/todo/'
+        action={import.meta.env.VITE_POST_URL}
         method='post'
         class='flex gap-1'
       >
@@ -24,16 +21,11 @@ const Tudo: Component = () => {
         <button type='submit'>Submit</button>
       </form>
 
-      {/* generate List && Items */}
-      <ol className='stack' reversed>
-        <Suspense fallback={<p>loadin..</p>}>
-          <Show when={tudos()}>
-            <For each={tudos().reverse()}>{tudo => 
-              <li>{tudo as string}</li>
-            }</For>
-          </Show>
-        </Suspense>
-      </ol>
+      <Suspense fallback={<p>loadin..</p>}>
+        <ol className='stack' reversed>
+          <For each={tudos()}>{tudo => <li>{tudo as string}</li>}</For>
+        </ol>
+      </Suspense>
     </main>
   )
 }
