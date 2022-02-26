@@ -23,7 +23,7 @@ const Tudo: Component = () => {
 
       <Suspense fallback={<p>loadin..</p>}>
         <ol className='stack' reversed>
-          <For each={tudos()}>{tudo => <li>{tudo as string}</li>}</For>
+          <For each={tudos()}>{tudo => <li>{tudo}</li>}</For>
         </ol>
       </Suspense>
     </main>
