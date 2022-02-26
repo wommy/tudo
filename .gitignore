@@ -2,3 +2,5 @@ node_modules
 dist
 .env*
 !.env.project
+# Local Netlify folder
+.netlify
