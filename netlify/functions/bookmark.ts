@@ -1,7 +1,7 @@
 import { Handler } from '@netlify/functions'
 import client from '../sanityClient'
 
-const handler: Handler = async event => {
+export const handler: Handler = async event => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 400,
@@ -36,5 +36,3 @@ const handler: Handler = async event => {
     }
   }
 }
-
-export { handler }
