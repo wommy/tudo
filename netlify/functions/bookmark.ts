@@ -37,4 +37,4 @@ const handler: Handler = async event => {
   }
 }
 
-module.exports = { handler }
+export { handler }
